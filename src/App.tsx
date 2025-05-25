@@ -8,11 +8,24 @@ import { QuickLinks } from "./components/QuickLinks";
 import { RefineryItem } from "./components/RefineryItem";
 import { Body } from "./pages/Body";
 import { ReduxStorage } from "./store/ReduxStore";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import { Cartpage } from "./pages/CartPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Body,
+  },
+  {
+    path: "cart",
+    Component: Cartpage,
+  },
+]);
 
 export function App() {
   return (
     <Provider store={ReduxStorage}>
-      <Body />
+      <RouterProvider router={router} />
     </Provider>
   );
 }
