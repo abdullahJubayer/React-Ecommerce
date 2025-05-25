@@ -24,7 +24,7 @@ export function NavBar() {
                 {
                   id: 1,
                   name: "Bags",
-                  children: [{ id: 11, name: "Black", children: [] }],
+                  children: [{ id: 11, name: "Long", children: [] }],
                 },
                 {
                   id: 2,
