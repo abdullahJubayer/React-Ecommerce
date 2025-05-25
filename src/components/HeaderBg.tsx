@@ -7,9 +7,9 @@ export function HeaderBg() {
       <img
         src={ic_header_bg}
         alt="header-background"
-        className="h-[40vh] sm:h-[60vh] w-full object-cover absolute"
+        className="h-[40vh] sm:h-[60vh] w-full object-cover"
       />
-      <div className="absolute  text-white bg-black bg-opacity-25 text-center w-full h-[40vh] sm:h-[60vh]">
+      <div className="absolute top-0 left-0 w-full h-[40vh] sm:h-[60vh] flex flex-col justify-center items-center text-white bg-black bg-opacity-25 text-center">
         <h1 className="text-5xl font-normal">
           Industrial design meets fashion
         </h1>
@@ -17,6 +17,14 @@ export function HeaderBg() {
         <button className="bg-transparent px-4 py-2 border border-gray-200">
           Add to cart
         </button>
+      </div>
+      <div className="text-center font-normal text-gray-600">
+        <h2 className="text-2xl mt-8">Obsessive Attention.</h2>
+        <h2 className="text-2xl mb-8">Intelligent Effort.</h2>
+        <h3>
+          Functional handbags made of luxurious and honest materials to improve
+          people's lives in small but mighty ways.
+        </h3>
       </div>
     </div>
   );
