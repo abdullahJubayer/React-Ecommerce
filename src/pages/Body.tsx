@@ -15,8 +15,10 @@ export const Body: React.FC = () => {
       <ProductStockBackLayout />
       <iframe
         className="w-full aspect-video my-8"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-      ></iframe>
+        src="https://www.youtube.com/embed/7TLP3Y2i4aY?autoplay=1&mute=1&controls=0&loop=1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+      />
       <div className="md:flex">
         <RefineryItem
           image={new URL("../assets/images/refinery.png", import.meta.url).href}
