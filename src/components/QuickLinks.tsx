@@ -7,7 +7,7 @@ type QuickLinksProps = {
 
 export const QuickLinks: React.FC<QuickLinksProps> = ({ title, links }) => {
   return (
-    <div className="mx-4 my-8">
+    <div className="mx-4 md:mx-16 my-8">
       <h3 className="text-4xl font-normal text-gray-600">{title}</h3>
       <ul className="mt-8">
         {links.map((item) => (

@@ -5,7 +5,7 @@ const ic_search = new URL("../assets/icons/lock.png", import.meta.url).href;
 export function NavBar() {
   return (
     <>
-      <div className="flex items-center justify-between px-2 py-4">
+      <div className="flex items-center justify-between px-2 md:px-16 py-4">
         <img src={ic_menu} alt="menu-icon" className="w-6 h-6" />
         <h1 className="text-2xl tracking-widest font-semibold">DAWN</h1>
         <div className="flex items-center">

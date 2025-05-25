@@ -7,9 +7,9 @@ const ic_right_arrow = new URL(
 
 export const ProductStockBackItem: React.FC = () => {
   return (
-    <div className="bg-gray-300 min-w-36">
+    <div>
       <img src={img_product} alt="product-img" />
-      <div className="flex items-center">
+      <div className="flex items-center bg-gray-300 ">
         <button
           type="button"
           className="text-sm ps-5 py-2.5 text-center inline-flex items-center"

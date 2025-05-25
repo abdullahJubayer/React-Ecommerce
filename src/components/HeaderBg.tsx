@@ -18,9 +18,11 @@ export function HeaderBg() {
           Add to cart
         </button>
       </div>
-      <div className="text-center font-normal text-gray-600">
-        <h2 className="text-2xl mt-8">Obsessive Attention.</h2>
-        <h2 className="text-2xl mb-8">Intelligent Effort.</h2>
+      <div className="flex-col justify-items-center mx-4 text-center">
+        <div className="font-normal text-gray-600 md:flex m-6">
+          <h2 className="text-2xl">Obsessive Attention.</h2>
+          <h2 className="text-2xl md:ms-2">Intelligent Effort.</h2>
+        </div>
         <h3>
           Functional handbags made of luxurious and honest materials to improve
           people's lives in small but mighty ways.
