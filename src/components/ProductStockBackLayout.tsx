@@ -1,5 +1,7 @@
+import { ProductItem } from "./ProductItem";
 import { ProductStockBackItem } from "./ProductStockBackItem";
-
+const ic_product = new URL("../assets/images/product.png", import.meta.url)
+  .href;
 export const ProductStockBackLayout: React.FC = () => {
   return (
     <div className="mx-4 md:mx-16">
@@ -7,10 +9,12 @@ export const ProductStockBackLayout: React.FC = () => {
         Back in stock!
       </h3>
       <div className="flex">
-        <ProductStockBackItem />
-        <div className="flex-col">
-          <ProductStockBackItem />
-          <ProductStockBackItem />
+        <div className="flex-1">
+          <ProductItem />
+        </div>
+        <div className="flex-1">
+          <ProductItem />
+          <ProductItem />
         </div>
       </div>
     </div>
