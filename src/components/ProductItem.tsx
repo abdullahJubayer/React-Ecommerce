@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppDispatch } from "../store/ReduxStore";
 import { addCart, deleteCart, ProductModel } from "../store/CartSlice";
+import { useNavigate } from "react-router";
 const ic_product = new URL("../assets/images/product.png", import.meta.url)
   .href;
 const ic_add = new URL("../assets/icons/plus.png", import.meta.url).href;
@@ -9,6 +10,7 @@ const ic_minus = new URL("../assets/icons/minus.png", import.meta.url).href;
 export const ProductItem: React.FC = () => {
   const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
   const dispatch = useAppDispatch();
+  const navigator = useNavigate();
 
   useEffect(() => {
     const data: ProductModel = {
@@ -27,7 +29,12 @@ export const ProductItem: React.FC = () => {
   }, [isAlreadyAdded]);
 
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onClick={() => {
+        navigator("/product-details/1");
+      }}
+    >
       <img
         className="w-8 h-8 absolute right-1 m-2"
         src={isAlreadyAdded ? ic_minus : ic_add}

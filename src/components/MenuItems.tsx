@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const ic_right_arrow = new URL(
-  "../assets/icons/right_arrow.png",
+  "../assets/icons/right_chevron.png",
   import.meta.url
 ).href;
 
