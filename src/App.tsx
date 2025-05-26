@@ -11,6 +11,7 @@ import { ReduxStorage } from "./store/ReduxStore";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Cartpage } from "./pages/CartPage";
 import { ProductDetails } from "./pages/ProductDetails";
+import { SearchResult } from "./pages/SearchResult";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "product-details/:id",
     Component: ProductDetails,
+  },
+  {
+    path: "search",
+    Component: SearchResult,
   },
 ]);
 

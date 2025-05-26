@@ -42,8 +42,13 @@ export function NavBar() {
         </div>
         <h1 className="text-2xl tracking-widest font-semibold">DAWN</h1>
         <div className="flex items-center">
-          <img src={ic_search} alt="search-icon" className="w-6 h-6 me-2" />
-          <div className="relative cursor-pointer" onClick={() => {}}>
+          <img
+            src={ic_search}
+            alt="search-icon"
+            className="w-6 h-6 me-2 cursor-pointer"
+            onClick={() => navigate("/search")}
+          />
+          <div className="relative cursor-pointer">
             <span className="absolute right-2 bottom-2 bg-black text-white w-4 h-4 rounded-full text-xs text-center">
               {cartItems.length}
             </span>
