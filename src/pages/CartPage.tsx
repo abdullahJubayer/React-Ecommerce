@@ -3,8 +3,10 @@ import { NavBar } from "../components/NavBar";
 import { CartItem } from "../components/CartItem";
 import { ProductList } from "../components/ProductList";
 import { QuickLinks } from "../components/QuickLinks";
+import { useAppSelector } from "../store/ReduxStore";
 
 export const Cartpage: React.FC = () => {
+  const cartItems = useAppSelector((store) => store.cart.items);
   return (
     <div>
       <p className="text-sm text-center text-gray-500 my-2">
@@ -22,8 +24,8 @@ export const Cartpage: React.FC = () => {
         <h1 className="text-sm">TOTAL</h1>
       </div>
       <hr className="h-px border-0 bg-gray-200 mx-4 mt-2" />
-      {[1, 2, 3].map((e) => (
-        <CartItem key={e} />
+      {cartItems.map((item) => (
+        <CartItem key={item.id} item={item} />
       ))}
       <hr className="h-px border-0 bg-gray-200 mx-4 mt-8" />
       <p className="text-sm text-center mt-8">Subtotal $561.00 CAD</p>
@@ -34,7 +36,7 @@ export const Cartpage: React.FC = () => {
         <button className="w-full bg-black text-white py-4">Checkout</button>
       </div>
       <p className="text-xl text-gray-700 mx-4 mt-8">Releted Product</p>
-      <ProductList />
+      {/* <ProductList /> */}
       <hr className="h-px border-0 bg-gray-200" />
       <div className="mx-4 md:mx-16 md:flex">
         <QuickLinks title="Quick links" links={["Bags", "Shoes", "LookBook"]} />

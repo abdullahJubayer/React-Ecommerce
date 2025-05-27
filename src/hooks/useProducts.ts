@@ -13,6 +13,7 @@ export type ProductModel = {
   };
   originalPrice: number;
   priceType: string;
+  purcheseCount: number;
 };
 
 export const useProducts = () => {
@@ -46,6 +47,7 @@ export const useProducts = () => {
           },
           originalPrice: item.price,
           priceType: "regular",
+          purcheseCount: 1,
         }));
         setProducts(mapToProductModel);
       } catch (err: any) {

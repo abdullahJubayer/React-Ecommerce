@@ -8,14 +8,10 @@ export const ProductStockBackLayout: React.FC = () => {
       <h3 className="text-4xl font-normal text-gray-600 mb-8 mt-16">
         Back in stock!
       </h3>
-      <div className="flex">
-        <div className="flex-1">
-          <ProductItem />
-        </div>
-        <div className="flex-1">
-          <ProductItem />
-          <ProductItem />
-        </div>
+      <div className="flex gap-4">
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
       </div>
     </div>
   );
