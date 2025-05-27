@@ -1,18 +1,15 @@
 import { useState } from "react";
+import { CategoryModel } from "../hooks/useCategory";
 
 const ic_right_arrow = new URL(
   "../assets/icons/right_chevron.png",
   import.meta.url
 ).href;
 
-type MenuItem = {
-  id: number;
-  name: string;
-  children: Array<MenuItem>;
-};
-
-export const MenuItems: React.FC<{ items: Array<MenuItem> }> = ({ items }) => {
-  const [hoveredItem, setHoveredItem] = useState(-1);
+export const MenuItems: React.FC<{ items: Array<CategoryModel> }> = ({
+  items,
+}) => {
+  const [hoveredItem, setHoveredItem] = useState("");
 
   return (
     <div className="absolute w-1/2 bg-white z-30 px-2 shadow-md">
@@ -27,11 +24,11 @@ export const MenuItems: React.FC<{ items: Array<MenuItem> }> = ({ items }) => {
             }}
             onMouseLeave={(e) => {
               e.preventDefault();
-              setHoveredItem(-1);
+              setHoveredItem("");
             }}
           >
             <div className="w-full flex items-center justify-between">
-              {item.name}
+              {item.title}
               {item.children.length > 0 && (
                 <img className="h-8" src={ic_right_arrow} alt="arrow-icon" />
               )}

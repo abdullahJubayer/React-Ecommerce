@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MenuItems } from "./MenuItems";
 import { useAppSelector } from "../store/ReduxStore";
 import { useNavigate } from "react-router";
+import { useCategory } from "../hooks/useCategory";
 
 const ic_menu = new URL("../assets/icons/menu.png", import.meta.url).href;
 const ic_cart = new URL("../assets/icons/cart.png", import.meta.url).href;
@@ -11,6 +12,7 @@ export function NavBar() {
   const [isMenuItemVisible, setIsMenuItemVisible] = useState(false);
   const cartItems = useAppSelector((store) => store.cart.items);
   const navigate = useNavigate();
+  const { categoris, loading, error } = useCategory();
 
   return (
     <>
@@ -22,23 +24,7 @@ export function NavBar() {
             className="w-6 h-6 cursor-pointer"
             onClick={() => setIsMenuItemVisible(!isMenuItemVisible)}
           />
-          {isMenuItemVisible && (
-            <MenuItems
-              items={[
-                {
-                  id: 1,
-                  name: "Bags",
-                  children: [{ id: 11, name: "Long", children: [] }],
-                },
-                {
-                  id: 2,
-                  name: "Shoes",
-                  children: [{ id: 22, name: "Nike", children: [] }],
-                },
-                { id: 3, name: "LookBook", children: [] },
-              ]}
-            />
-          )}
+          {isMenuItemVisible && <MenuItems items={categoris} />}
         </div>
         <h1 className="text-2xl tracking-widest font-semibold">DAWN</h1>
         <div className="flex items-center">
