@@ -3,16 +3,12 @@ import { useEffect, useState } from "react";
 export type ProductModel = {
   id: number;
   title: string;
+  slug: string;
   price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
   originalPrice: number;
-  priceType: string;
+  description: string;
+  image: string;
+  updatedAt: string;
   purcheseCount: number;
 };
 
@@ -26,7 +22,9 @@ export const useProducts = () => {
       setLoading(true);
 
       try {
-        const response = await fetch("https://fakestoreapi.com/products");
+        const response = await fetch(
+          "https://api.escuelajs.co/api/v1/products?offset=0&limit=10"
+        );
         if (!response.ok) {
           const errorBody = await response.json();
           throw new Error(errorBody.message || `Error: ${response.status}`);
@@ -38,14 +36,9 @@ export const useProducts = () => {
           title: item.title,
           price: item.price + 10,
           description: item.description,
-          category: item.category,
-          image: item.image,
-          rating: {
-            rate: item.rating.rate,
-            count: item.rating.count,
-          },
+          image: item.images?.[0],
           originalPrice: item.price,
-          priceType: "regular",
+          updatedAt: item.updatedAt,
           purcheseCount: 1,
         }));
         setProducts(mapToProductModel);

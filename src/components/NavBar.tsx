@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MenuItems } from "./MenuItems";
 import { useAppSelector } from "../store/ReduxStore";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useCategory } from "../hooks/useCategory";
 
 const ic_menu = new URL("../assets/icons/menu.png", import.meta.url).href;
@@ -13,6 +13,8 @@ export function NavBar() {
   const cartItems = useAppSelector((store) => store.cart.items);
   const navigate = useNavigate();
   const { categoris, loading, error } = useCategory();
+  const location = useLocation();
+  const hideNav = ["/cart", "/search"].includes(location.pathname);
 
   return (
     <>
@@ -28,12 +30,14 @@ export function NavBar() {
         </div>
         <h1 className="text-2xl tracking-widest font-semibold">DAWN</h1>
         <div className="flex items-center">
-          <img
-            src={ic_search}
-            alt="search-icon"
-            className="w-6 h-6 me-2 cursor-pointer"
-            onClick={() => navigate("/search")}
-          />
+          {!hideNav && (
+            <img
+              src={ic_search}
+              alt="search-icon"
+              className="w-6 h-6 me-2 cursor-pointer"
+              onClick={() => navigate("/search")}
+            />
+          )}
           <div className="relative cursor-pointer">
             <span className="absolute right-2 bottom-2 bg-black text-white w-4 h-4 rounded-full text-xs text-center">
               {cartItems.length}

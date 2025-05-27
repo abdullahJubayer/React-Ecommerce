@@ -29,7 +29,7 @@ export const ProductItem: React.FC<{ item: ProductModel }> = ({ item }) => {
       }}
     >
       <img
-        className="w-8 h-8 bg-gray-50 rounded-full absolute right-1 m-2"
+        className="w-8 h-8 bg-gray-50 rounded-full absolute right-6 top-6"
         src={isAlreadyAdded ? ic_minus : ic_add}
         alt="product-img"
         onClick={(e) => {
@@ -37,7 +37,11 @@ export const ProductItem: React.FC<{ item: ProductModel }> = ({ item }) => {
           setIsAlreadyAdded(!isAlreadyAdded);
         }}
       />
-      <img className="h-32" src={item?.image} alt="product-img" />
+      <img
+        className="h-32 w-full rounded-sm"
+        src={item?.image}
+        alt="product-img"
+      />
       <p className="line-clamp-2">{item?.title}</p>
       <p className="line-through">${item?.price?.toFixed(2)} CAD</p>
       <p>${item?.originalPrice} CAD</p>
