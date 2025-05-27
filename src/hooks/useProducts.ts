@@ -33,7 +33,6 @@ export const useProducts = () => {
         }
 
         const data = await response.json();
-        console.log("Fetched products:", data);
         const mapToProductModel: ProductModel[] = data.map((item: any) => ({
           id: item.id,
           title: item.title,

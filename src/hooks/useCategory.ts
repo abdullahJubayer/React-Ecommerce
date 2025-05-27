@@ -25,7 +25,6 @@ export const useCategory = () => {
         }
 
         const data = await response.json();
-        console.log("Fetched categories:", data);
         const mappedCategories: CategoryModel[] = data.map((item: any) => ({
           id: item,
           title: item,

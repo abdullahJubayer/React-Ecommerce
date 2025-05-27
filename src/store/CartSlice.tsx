@@ -16,10 +16,9 @@ const CartSlice = createSlice({
       if (index === -1) state.items = [...state.items, actions.payload];
     },
     updateCart: (state, actions: PayloadAction<ProductModel>) => {
-      const dartyIndex = state.items.findIndex(
-        (item) => item.id == actions.payload.id
+      state.items = state.items.map((item) =>
+        item.id === actions.payload.id ? actions.payload : item
       );
-      state.items[dartyIndex] = actions.payload;
     },
     deleteCart: (state, actions: PayloadAction<ProductModel>) => {
       const filterItems = state.items.filter(

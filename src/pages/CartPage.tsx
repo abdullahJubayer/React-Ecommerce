@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavBar } from "../components/NavBar";
 import { CartItem } from "../components/CartItem";
 import { ProductList } from "../components/ProductList";
@@ -7,6 +7,14 @@ import { useAppSelector } from "../store/ReduxStore";
 
 export const Cartpage: React.FC = () => {
   const cartItems = useAppSelector((store) => store.cart.items);
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    const totalPrice = cartItems.reduce(
+      (sum, item) => sum + item.originalPrice * item.purcheseCount,
+      0
+    );
+    setTotalPrice(totalPrice);
+  }, [cartItems]);
   return (
     <div>
       <p className="text-sm text-center text-gray-500 my-2">
@@ -28,7 +36,9 @@ export const Cartpage: React.FC = () => {
         <CartItem key={item.id} item={item} />
       ))}
       <hr className="h-px border-0 bg-gray-200 mx-4 mt-8" />
-      <p className="text-sm text-center mt-8">Subtotal $561.00 CAD</p>
+      <p className="text-sm text-center mt-8">
+        Subtotal ${totalPrice.toFixed(2)} CAD
+      </p>
       <p className="text-sm text-center text-gray-500 my-2">
         Taxes and shipping calculated at checkout
       </p>
