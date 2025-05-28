@@ -4,6 +4,7 @@ import { CartItem } from "../components/CartItem";
 import { ProductList } from "../components/ProductList";
 import { QuickLinks } from "../components/QuickLinks";
 import { useAppSelector } from "../store/ReduxStore";
+import { ReletedProductList } from "../components/ReletedProductList";
 
 export const Cartpage: React.FC = () => {
   const cartItems = useAppSelector((store) => store.cart.items);
@@ -46,7 +47,9 @@ export const Cartpage: React.FC = () => {
         <button className="w-full bg-black text-white py-4">Checkout</button>
       </div>
       <p className="text-xl text-gray-700 mx-4 mt-8">Releted Product</p>
-      {/* <ProductList /> */}
+      {cartItems.length > 0 && (
+        <ReletedProductList productId={cartItems[0].id} />
+      )}
       <hr className="h-px border-0 bg-gray-200" />
       <div className="mx-4 md:mx-16 md:flex">
         <QuickLinks title="Quick links" links={["Bags", "Shoes", "LookBook"]} />

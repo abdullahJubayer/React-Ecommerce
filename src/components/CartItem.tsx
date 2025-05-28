@@ -29,20 +29,20 @@ export const CartItem: React.FC<{ item: ProductModel }> = ({ item }) => {
   };
 
   return (
-    <div className="flex justify-between m-8">
+    <div className="flex justify-between items-end m-8">
       <img className="w-1/4 max-h-24" src={item?.image} alt="product-img" />
       <div className="flex-col items-center mx-4">
         <p className="text-md text-gray-500 line-clamp-1">{item?.title}</p>
         <p className="text-sm text-gray-500 my-2">Color: Cotton Candy</p>
         <div className="flex items-end">
-          <div className="flex justify-between border border-red-100 px-4 py-2">
+          <div className="flex flex-1 justify-between border border-red-100 px-4 py-2">
             <img
               className="w-6 h-6"
               src={ic_add}
               alt="product-img"
               onClick={(e) => updateCartItem(e, true)}
             />
-            <p className="px-8">{item?.purcheseCount}</p>
+            <p className="px-2">{item?.purcheseCount}</p>
             <img
               className="w-6 h-6"
               src={ic_minus}
@@ -58,7 +58,7 @@ export const CartItem: React.FC<{ item: ProductModel }> = ({ item }) => {
           />
         </div>
       </div>
-      <p>${item?.originalPrice + " CAD"}</p>
+      <p className="text-center">${item?.originalPrice + " CAD"}</p>
     </div>
   );
 };
