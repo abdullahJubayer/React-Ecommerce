@@ -9,9 +9,9 @@ export const ProductStockBackLayout: React.FC = () => {
         Back in stock!
       </h3>
       <div className="flex gap-4">
+        {/* <ProductItem />
         <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        <ProductItem /> */}
       </div>
     </div>
   );

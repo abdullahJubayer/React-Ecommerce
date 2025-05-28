@@ -5,12 +5,14 @@ import { ProductList } from "../components/ProductList";
 import { ProductStockBackLayout } from "../components/ProductStockBackLayout";
 import { RefineryItem } from "../components/RefineryItem";
 import { QuickLinks } from "../components/QuickLinks";
+import { Pagination } from "../components/Pagination";
 
 export const Body: React.FC = () => {
   return (
     <>
       <NavBar />
       <HeaderBg />
+      <Pagination />
       <ProductList />
       <ProductStockBackLayout />
       <iframe
