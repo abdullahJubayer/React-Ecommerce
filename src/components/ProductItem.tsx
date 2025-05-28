@@ -25,7 +25,7 @@ export const ProductItem: React.FC<{ item: ProductModel }> = ({ item }) => {
     <div
       className="relative shadow-sm rounded-md p-4 bg-white hover:shadow-lg hover:scale-105 transition-all duration-100 ease-in-out cursor-pointer"
       onClick={() => {
-        navigator("/product-details/1");
+        navigator("/product-details/" + item.id);
       }}
     >
       <img
