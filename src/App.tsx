@@ -12,11 +12,12 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { Cartpage } from "./pages/CartPage";
 import { ProductDetails } from "./pages/ProductDetails";
 import { SearchResult } from "./pages/SearchResult";
+import { VirtualListPage } from "./pages/VirtualListPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Body,
+    Component: VirtualListPage,
   },
   {
     path: "cart",
