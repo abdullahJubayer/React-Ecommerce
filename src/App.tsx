@@ -17,7 +17,7 @@ import { VirtualListPage } from "./pages/VirtualListPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: VirtualListPage,
+    Component: Body,
   },
   {
     path: "cart",

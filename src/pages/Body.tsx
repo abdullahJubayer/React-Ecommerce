@@ -12,7 +12,6 @@ export const Body: React.FC = () => {
     <>
       <NavBar />
       <HeaderBg />
-      <Pagination />
       <ProductList />
       <ProductStockBackLayout />
       <iframe
