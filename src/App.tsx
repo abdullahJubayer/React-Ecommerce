@@ -13,11 +13,12 @@ import { Cartpage } from "./pages/CartPage";
 import { ProductDetails } from "./pages/ProductDetails";
 import { SearchResult } from "./pages/SearchResult";
 import { ProductPageList } from "./pages/ProductListPage";
+import { AuthPage } from "./pages/AuthPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Body,
+    Component: AuthPage,
   },
   {
     path: "cart",
