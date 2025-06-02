@@ -24,6 +24,9 @@ export const ProductDetails: React.FC = () => {
   useEffect(() => {
     if (productDetails?.images) setImages(productDetails.images);
   }, [productDetails]);
+  const options = ["S", "M", "L", "XL", "XXL"];
+  const [selected, setSelected] = useState<string>("");
+
   return (
     <div>
       <p className="text-sm text-center text-gray-500 my-2">
@@ -72,11 +75,25 @@ export const ProductDetails: React.FC = () => {
         <p className="text-gray-500 text-sm my-3">
           ${productDetails?.price.toFixed(2) || 0} CAD
         </p>
-        <p className="text-gray-700 text-xs my-2">Color</p>
+        <p className="text-gray-700 text-xs my-2">Size</p>
         <div className="flex overflow-x-scroll">
-          {[1, 2, 3, 4, 5, 6, 7].map((item) => (
-            <ChipItem title="Chocolate" key={item} />
-          ))}
+          <div className="flex gap-2 flex-wrap">
+            {options.map((option) => (
+              <button
+                key={option}
+                onClick={() => setSelected(option)}
+                className={`px-4 py-2 rounded-md border 
+            ${
+              selected === option
+                ? "bg-gray-900 text-white border-gray-900"
+                : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+            }
+          `}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
         </div>
         <p className="text-gray-700 text-xs mt-4 mb-2">Quantity</p>
         <div className="flex justify-between border border-red-100 px-4 py-2 w-1/3">

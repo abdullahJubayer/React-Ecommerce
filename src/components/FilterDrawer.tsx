@@ -22,8 +22,8 @@ export const FilterDrawer: React.FC<{
     isPriceSelected: false,
     isColorSelected: false,
   });
-  const minRef = useRef(null);
-  const maxRef = useRef(null);
+  const minRef = useRef<HTMLInputElement>(null);
+  const maxRef = useRef<HTMLInputElement>(null);
   return (
     <>
       {isOpen && (
@@ -126,11 +126,13 @@ export const FilterDrawer: React.FC<{
             <button
               className="flex-1 bg-black text-white py-2 rounded-sm text-sm"
               onClick={() => {
-                if (filter.isPriceSelected) {
+                const min = minRef.current?.value;
+                const max = maxRef.current?.value;
+                if (filter.isPriceSelected && min && max) {
                   setPrice((prev) => ({
                     ...prev,
-                    min: minRef?.current.value ?? 0,
-                    max: maxRef?.current.value ?? 0,
+                    min: Number(min),
+                    max: Number(max),
                   }));
                   setIsOpen(false);
                 }

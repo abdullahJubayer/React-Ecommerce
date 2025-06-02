@@ -18,6 +18,10 @@ import { AuthPage } from "./pages/AuthPage";
 const router = createBrowserRouter([
   {
     path: "/",
+    Component: AuthPage,
+  },
+  {
+    path: "home",
     Component: Body,
   },
   {

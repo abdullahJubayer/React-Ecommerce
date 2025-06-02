@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router";
 
 export const LoginForm: React.FC = () => {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+
+  const login = async () => {
+    const response = await fetch("https://api.escuelajs.co/api/v1/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: "john@mail.com",
+        password: "changeme",
+      }),
+    });
+
+    if (response.ok) {
+      const success = await response.json();
+      navigate("/home");
+    }
+  };
+
   return (
     <div>
       <div>
@@ -13,9 +36,9 @@ export const LoginForm: React.FC = () => {
           <input
             type="email"
             name="email"
+            ref={emailRef}
             className="block py-2.5 px-0 w-full text-sm text-gray-700 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-600 peer"
             placeholder=" "
-            required
           />
           <label
             htmlFor="email"
@@ -30,7 +53,7 @@ export const LoginForm: React.FC = () => {
             name="password"
             className="block py-2.5 px-0 w-full text-sm text-gray-700 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-600 peer"
             placeholder=" "
-            required
+            ref={passRef}
           />
           <label
             htmlFor="password"
@@ -40,7 +63,10 @@ export const LoginForm: React.FC = () => {
           </label>
         </div>
         <div className="w-full mt-4">
-          <button className="w-full bg-black text-white py-3 rounded-sm">
+          <button
+            className="w-full bg-black text-white py-3 rounded-sm"
+            onClick={login}
+          >
             SignUp
           </button>
         </div>

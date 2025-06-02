@@ -29,7 +29,7 @@ export const MenuItems: React.FC<{ items: Array<CategoryModel> }> = ({
               setHoveredItem("");
             }}
             onClick={(e) => {
-              navigator("category-product/" + item.id, {
+              navigator("/category-product/" + item.id, {
                 state: {
                   categoryName: item.title,
                 },

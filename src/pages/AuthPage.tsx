@@ -8,7 +8,7 @@ export const AuthPage: React.FC = () => {
       <div className="flex-1">
         <LoginForm />
       </div>
-      <div className="flex-1 relativ md:mt-8">
+      <div className="flex-1 relativ md:mt-8 hidden md:block">
         <Carousel />
       </div>
     </div>

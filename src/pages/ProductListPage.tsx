@@ -17,14 +17,16 @@ export const ProductPageList: React.FC = () => {
   const { products, loading, error } = useProductByCategory(catId + "", price);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { categoryName } = location.state;
+  const { categoryName } = location.state || {};
 
   return (
     <div>
       <NavBar />
       <hr className="h-px border-0 bg-gray-300" />
       <div className="mx-8 md:mx-16 my-8">
-        {products.length > 0 && <div className="text-2xl">{categoryName}</div>}
+        {products.length > 0 && (
+          <div className="text-2xl">{categoryName ?? ""}</div>
+        )}
         {products.length == 0 && <div>No Item Found</div>}
         <div className="flex justify-between my-8">
           <div
