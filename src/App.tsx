@@ -18,7 +18,7 @@ import { AuthPage } from "./pages/AuthPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: AuthPage,
+    Component: Body,
   },
   {
     path: "cart",

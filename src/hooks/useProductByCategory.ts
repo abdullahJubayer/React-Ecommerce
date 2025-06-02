@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { ProductModel } from "./useProducts";
+import { PriceRange } from "../pages/ProductListPage";
 
-export const useProductByCategory = (catId: string) => {
+export const useProductByCategory = (catId: string, priceRange: PriceRange) => {
   const [products, setProducts] = useState<ProductModel[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -12,7 +13,7 @@ export const useProductByCategory = (catId: string) => {
 
       try {
         const response = await fetch(
-          `https://api.escuelajs.co/api/v1/categories/${catId}/products`
+          `https://api.escuelajs.co/api/v1/categories/${catId}/products?price_min=${priceRange.min}&price_max=${priceRange.max}`
         );
         if (!response.ok) {
           const errorBody = await response.json();
@@ -39,7 +40,7 @@ export const useProductByCategory = (catId: string) => {
     };
 
     fetchCategoris();
-  }, []);
+  }, [catId, priceRange]);
 
   return { products, loading, error };
 };
