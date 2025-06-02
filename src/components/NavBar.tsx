@@ -7,6 +7,7 @@ import { useCategory } from "../hooks/useCategory";
 const ic_menu = new URL("../assets/icons/menu.png", import.meta.url).href;
 const ic_cart = new URL("../assets/icons/cart.png", import.meta.url).href;
 const ic_search = new URL("../assets/icons/search.png", import.meta.url).href;
+const ic_close = new URL("../assets/icons/close.png", import.meta.url).href;
 
 export function NavBar() {
   const [isMenuItemVisible, setIsMenuItemVisible] = useState(false);
@@ -21,7 +22,7 @@ export function NavBar() {
       <div className="flex items-center justify-between px-2 md:px-16 py-2">
         <div>
           <img
-            src={ic_menu}
+            src={isMenuItemVisible ? ic_close : ic_menu}
             alt="menu-icon"
             className="w-6 h-6 cursor-pointer"
             onClick={() => setIsMenuItemVisible(!isMenuItemVisible)}
