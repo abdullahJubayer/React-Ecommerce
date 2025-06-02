@@ -38,7 +38,7 @@ export const ProductItem: React.FC<{ item: ProductModel }> = ({ item }) => {
         }}
       />
       <img
-        className="h-32 w-full rounded-sm"
+        className="h-32 w-full rounded-sm object-contain"
         src={item?.image}
         alt="product-img"
       />

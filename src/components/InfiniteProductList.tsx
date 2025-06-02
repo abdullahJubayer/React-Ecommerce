@@ -1,0 +1,33 @@
+import { useEffect, useState } from "react";
+import { useProductPagination } from "../hooks/useProductPagination";
+import { ProductItem } from "./ProductItem";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { ProductModel } from "../hooks/useProducts";
+
+export const InfiniteProductList: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const { products, loading, error } = useProductPagination(currentPage);
+
+  const fetchData = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  return (
+    <InfiniteScroll
+      dataLength={5}
+      next={fetchData}
+      hasMore={true}
+      loader={<h4>Loading...</h4>}
+      endMessage={
+        <p style={{ textAlign: "center" }}>
+          <b>Yay! You have seen it all</b>
+        </p>
+      }
+    >
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mx-4 md:mx-16 my-8">
+        {products &&
+          products.map((item) => <ProductItem key={item.id} item={item} />)}
+      </div>
+    </InfiniteScroll>
+  );
+};

@@ -30,7 +30,11 @@ export const CartItem: React.FC<{ item: ProductModel }> = ({ item }) => {
 
   return (
     <div className="flex justify-between items-end m-8">
-      <img className="w-1/4 max-h-24" src={item?.image} alt="product-img" />
+      <img
+        className="w-1/4 max-h-24 object-contain"
+        src={item?.image}
+        alt="product-img"
+      />
       <div className="flex-col items-center mx-4">
         <p className="text-md text-gray-500 line-clamp-1">{item?.title}</p>
         <p className="text-sm text-gray-500 my-2">Color: Cotton Candy</p>

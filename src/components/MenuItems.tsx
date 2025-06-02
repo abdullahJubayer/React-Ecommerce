@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CategoryModel } from "../hooks/useCategory";
+import { useNavigate } from "react-router";
 
 const ic_right_arrow = new URL(
   "../assets/icons/right_chevron.png",
@@ -10,6 +11,7 @@ export const MenuItems: React.FC<{ items: Array<CategoryModel> }> = ({
   items,
 }) => {
   const [hoveredItem, setHoveredItem] = useState("");
+  const navigator = useNavigate();
 
   return (
     <div className="absolute w-1/2 bg-white z-30 px-2 shadow-md">
@@ -25,6 +27,9 @@ export const MenuItems: React.FC<{ items: Array<CategoryModel> }> = ({
             onMouseLeave={(e) => {
               e.preventDefault();
               setHoveredItem("");
+            }}
+            onClick={(e) => {
+              navigator("category-product/" + item.id);
             }}
           >
             <div className="w-full flex items-center justify-between">

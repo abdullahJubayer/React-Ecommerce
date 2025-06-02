@@ -6,13 +6,14 @@ import { ProductStockBackLayout } from "../components/ProductStockBackLayout";
 import { RefineryItem } from "../components/RefineryItem";
 import { QuickLinks } from "../components/QuickLinks";
 import { Pagination } from "../components/Pagination";
+import { InfiniteProductList } from "../components/InfiniteProductList";
 
 export const Body: React.FC = () => {
   return (
     <>
       <NavBar />
       <HeaderBg />
-      <ProductList />
+      <InfiniteProductList />
       <ProductStockBackLayout />
       <iframe
         className="w-full aspect-video my-8"

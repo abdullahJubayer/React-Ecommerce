@@ -33,7 +33,7 @@ export const ProductDetails: React.FC = () => {
       <NavBar />
       <hr className="h-px border-0 bg-gray-200" />
       <img
-        className="w-full object-cover max-h-56"
+        className="w-full object-contain max-h-56"
         src={productDetails?.images[currentImgIndex]}
         alt="product-img"
       />

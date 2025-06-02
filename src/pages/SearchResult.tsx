@@ -17,7 +17,7 @@ export const SearchResult: React.FC = () => {
       </p>
       <hr className="h-px border-0 bg-gray-200" />
       <NavBar />
-      <hr className="h-px border-0 bg-gray-200" />
+      <hr className="h-px my-8 border-0 bg-gray-200" />
       <div className="mx-4 md:mx-16">
         <h2 className="text-xl text-center text-gray-600 my-8">
           Search results
@@ -40,11 +40,11 @@ export const SearchResult: React.FC = () => {
           {products.length} results founds{" "}
           {searchQuery != "" && `for \"${searchQuery}\"`}
         </p>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-6">
           {products &&
             products.map((item) => <ProductItem key={item.id} item={item} />)}
         </div>
-        <hr className="h-px border-0 bg-gray-200" />
+        <hr className="h-px my-8 border-0 bg-gray-200" />
         <div className="mx-4 md:mx-16 md:flex">
           <QuickLinks
             title="Quick links"

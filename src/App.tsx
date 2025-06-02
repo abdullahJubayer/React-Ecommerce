@@ -12,7 +12,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { Cartpage } from "./pages/CartPage";
 import { ProductDetails } from "./pages/ProductDetails";
 import { SearchResult } from "./pages/SearchResult";
-import { VirtualListPage } from "./pages/VirtualListPage";
+import { ProductPageList } from "./pages/ProductListPage";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "search",
     Component: SearchResult,
+  },
+  {
+    path: "category-product/:catId",
+    Component: ProductPageList,
   },
 ]);
 
