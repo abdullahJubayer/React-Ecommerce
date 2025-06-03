@@ -29,7 +29,7 @@ export const useProductPagination = (offset: number) => {
           updatedAt: item.updatedAt,
           purcheseCount: 1,
         }));
-        setProducts(mapToProductModel);
+        setProducts((prev) => [...prev, ...mapToProductModel]);
       } catch (err: any) {
         setError(err.message || "Unknown error");
       } finally {

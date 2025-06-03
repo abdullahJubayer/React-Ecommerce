@@ -9,7 +9,7 @@ const ic_add = new URL("../assets/icons/plus.png", import.meta.url).href;
 const ic_minus = new URL("../assets/icons/minus.png", import.meta.url).href;
 
 export const ProductItem: React.FC<{ item: ProductModel }> = ({ item }) => {
-  const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
+  const [isAlreadyAdded, setIsAlreadyAdded] = useState<boolean | null>(null);
   const dispatch = useAppDispatch();
   const navigator = useNavigate();
 
@@ -17,7 +17,7 @@ export const ProductItem: React.FC<{ item: ProductModel }> = ({ item }) => {
     if (isAlreadyAdded) {
       dispatch(addCart(item));
     } else {
-      dispatch(deleteCart(item));
+      if (isAlreadyAdded != null) dispatch(deleteCart(item));
     }
   }, [isAlreadyAdded]);
 
