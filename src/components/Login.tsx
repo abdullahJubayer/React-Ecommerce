@@ -44,10 +44,10 @@ export const LoginForm: React.FC = () => {
   return (
     <div>
       <div>
-        <span className="bg-gray-700 text-white ps-2 pe-1 py-2">DA</span>{" "}
+        <span className="bg-gray-700 text-white ps-2 pe-1">DA</span>{" "}
         <span>WN</span>
       </div>
-      <div className="flex flex-col justify-center items-center mt-24">
+      <div className="flex flex-col justify-center items-center mt-12 md:mt-24">
         <h2 className="text-3xl text-gray-700">Create Account</h2>
         <div className="mt-16 relative z-0 w-full mb-5 group">
           <input

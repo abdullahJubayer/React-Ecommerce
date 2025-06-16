@@ -4,6 +4,7 @@ import { useProductByCategory } from "../hooks/useProductByCategory";
 import { useLocation, useParams } from "react-router";
 import { NavBar } from "../components/NavBar";
 import { FilterDrawer } from "../components/FilterDrawer";
+import { ProductItemShimmer } from "../components/ProductItemShimmer";
 const ic_filter = new URL("../assets/icons/filter.png", import.meta.url).href;
 
 export type PriceRange = {
@@ -40,9 +41,10 @@ export const ProductPageList: React.FC = () => {
           </div>
           <span>{products.length} products</span>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mx-4 md:mx-16 my-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 md:mx-16 my-8">
           {products &&
             products.map((item) => <ProductItem key={item.id} item={item} />)}
+          {loading && [1, 2, 3, 4].map((e) => <ProductItemShimmer key={e} />)}
         </div>
       </div>
       <FilterDrawer isOpen={isOpen} setIsOpen={setIsOpen} setPrice={setPrice} />

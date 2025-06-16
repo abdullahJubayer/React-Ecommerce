@@ -1,15 +1,19 @@
-const img_product = new URL("../assets/images/product.png", import.meta.url)
-  .href;
 const ic_right_arrow = new URL(
-  "../assets/icons/right_arrow.png",
+  "../assets/icons/arrow_right.png",
   import.meta.url
 ).href;
 
-export const ProductStockBackItem: React.FC = () => {
+export const ProductStockBackItem: React.FC<{ image: string }> = ({
+  image,
+}) => {
   return (
-    <div>
-      <img src={img_product} alt="product-img" />
-      <div className="flex items-center bg-gray-300 ">
+    <div className="flex flex-col items-center h-full">
+      <img
+        className="w-full h-full object-cover"
+        src={image}
+        alt="product-img"
+      />
+      <div className="flex items-center w-full bg-gray-300">
         <button
           type="button"
           className="text-sm ps-5 py-2.5 text-center inline-flex items-center"

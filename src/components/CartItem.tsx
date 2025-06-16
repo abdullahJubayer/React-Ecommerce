@@ -29,17 +29,18 @@ export const CartItem: React.FC<{ item: ProductModel }> = ({ item }) => {
   };
 
   return (
-    <div className="flex justify-between items-end m-8">
+    <div className="flex items-center mx-8 my-4 md:mx-16 md:my-8">
       <img
-        className="w-1/4 max-h-24 object-contain"
+        className="min-w-32 max-h-24 object-contain"
         src={item?.image}
         alt="product-img"
       />
-      <div className="flex-col items-center mx-4">
+      <div className="flex-1"></div>
+      <div className="flex flex-col flex-1">
         <p className="text-md text-gray-500 line-clamp-1">{item?.title}</p>
         <p className="text-sm text-gray-500 my-2">Color: Cotton Candy</p>
         <div className="flex items-end">
-          <div className="flex flex-1 justify-between border border-red-100 px-4 py-2">
+          <div className="flex justify-between min-w-32 border border-red-100 px-4 py-2">
             <img
               className="w-6 h-6"
               src={ic_add}
@@ -62,7 +63,10 @@ export const CartItem: React.FC<{ item: ProductModel }> = ({ item }) => {
           />
         </div>
       </div>
-      <p className="text-center">${item?.originalPrice + " CAD"}</p>
+      <div className="flex-1"></div>
+      <p className="w-24 break-words text-end">
+        ${item?.originalPrice + " CAD"}
+      </p>
     </div>
   );
 };

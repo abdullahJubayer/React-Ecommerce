@@ -4,6 +4,7 @@ import { ProductItem } from "../components/ProductItem";
 import { QuickLinks } from "../components/QuickLinks";
 import { useSearch } from "../hooks/useSearch";
 import { ProductModel } from "../hooks/useProducts";
+import { ProductItemShimmer } from "../components/ProductItemShimmer";
 const ic_search = new URL("../assets/icons/search.png", import.meta.url).href;
 
 export const SearchResult: React.FC = () => {
@@ -43,6 +44,7 @@ export const SearchResult: React.FC = () => {
         <div className="grid grid-cols-2 gap-4 md:grid-cols-6">
           {products &&
             products.map((item) => <ProductItem key={item.id} item={item} />)}
+          {loading && [1, 2, 3, 4].map((e) => <ProductItemShimmer key={e} />)}
         </div>
         <hr className="h-px my-8 border-0 bg-gray-200" />
         <div className="mx-4 md:mx-16 md:flex">

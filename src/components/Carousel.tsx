@@ -27,7 +27,7 @@ export const Carousel = () => {
             key={index}
             src={src}
             alt={`Slide ${index + 1}`}
-            className="w-full flex-shrink-0 object-contain"
+            className="w-full flex-shrink-0 object-cover"
           />
         ))}
       </div>

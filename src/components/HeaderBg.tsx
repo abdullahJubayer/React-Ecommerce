@@ -18,8 +18,8 @@ export function HeaderBg() {
           Add to cart
         </button>
       </div>
-      <div className="flex-col justify-items-center mx-4 text-center">
-        <div className="font-normal text-gray-600 md:flex m-6">
+      <div className="flex-col justify-items-center mx-4 md:my-8 text-center">
+        <div className="font-normal text-gray-700 md:flex m-6">
           <h2 className="text-2xl">Obsessive Attention.</h2>
           <h2 className="text-2xl md:ms-2">Intelligent Effort.</h2>
         </div>

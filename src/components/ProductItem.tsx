@@ -29,7 +29,7 @@ export const ProductItem: React.FC<{ item: ProductModel }> = ({ item }) => {
       }}
     >
       <img
-        className="w-8 h-8 bg-gray-50 rounded-full absolute right-6 top-6"
+        className="w-8 h-8 bg-gray-50 rounded-full absolute right-10 top-5"
         src={isAlreadyAdded ? ic_minus : ic_add}
         alt="product-img"
         onClick={(e) => {
