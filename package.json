@@ -5,8 +5,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
-    "postinstall": "npx @parcel/watcher install"
+    "build": "parcel build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
