@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import cartReducer from "./CartSlice";
+import userReducer from "./userSlice";
 
 export const ReduxStorage = configureStore({
   reducer: {
+    user: userReducer,
     cart: cartReducer,
   },
 });

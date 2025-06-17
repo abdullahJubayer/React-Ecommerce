@@ -1,6 +1,8 @@
 import React, { cache, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { GoogleSignInButton } from "./GoogleSignInButton";
+import { useAppDispatch } from "../store/ReduxStore";
+import { addUser } from "../store/userSlice";
 
 export const LoginForm: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -8,6 +10,7 @@ export const LoginForm: React.FC = () => {
   const passRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const dispatch = useAppDispatch();
 
   const login = async () => {
     if (emailRef.current?.value && passRef.current?.value) {
@@ -114,7 +117,7 @@ export const LoginForm: React.FC = () => {
           <div className="mt-4">
             <GoogleSignInButton
               onSuccess={(e) => {
-                console.log(e);
+                dispatch(addUser(e.clientId));
                 navigate("/home");
               }}
               onError={() => {}}

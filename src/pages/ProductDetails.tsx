@@ -3,6 +3,9 @@ import { NavBar } from "../components/NavBar";
 import { useProductDetails } from "../hooks/useProductDetails";
 import { useParams } from "react-router";
 import { ImageSlider } from "../components/ImageSlider";
+import { useAppDispatch } from "../store/ReduxStore";
+import { updateCart } from "../store/CartSlice";
+import { ProductModel } from "../hooks/useProducts";
 const ic_add = new URL("../assets/icons/plus.png", import.meta.url).href;
 const ic_minus = new URL("../assets/icons/minus.png", import.meta.url).href;
 
@@ -11,11 +14,39 @@ export const ProductDetails: React.FC = () => {
   const { productDetails, loading, error } = useProductDetails(Number(id));
   const [images, setImages] = useState<Array<string>>([]);
   const [currentImgIndex, setcurrentImgIndex] = useState(0);
+  const [cartItem, setCartItem] = useState<ProductModel>({
+    id: productDetails?.id || 0,
+    title: productDetails?.title || "",
+    slug: productDetails?.slug || "",
+    price: productDetails?.price || 0,
+    description: productDetails?.description || "",
+    image: productDetails?.images[0] ?? "",
+    originalPrice: productDetails?.originalPrice || 0,
+    updatedAt: productDetails?.updatedAt || "",
+    purcheseCount: 1,
+  });
+
   useEffect(() => {
     if (productDetails?.images) setImages(productDetails.images);
   }, [productDetails]);
   const options = ["S", "M", "L", "XL", "XXL"];
   const [selected, setSelected] = useState<string>("");
+  const dispatch = useAppDispatch();
+  const updateCartItem = (
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>,
+    isAdd: boolean
+  ) => {
+    e.stopPropagation();
+    const updatedCount = isAdd
+      ? cartItem?.purcheseCount + 1
+      : cartItem?.purcheseCount - 1;
+    const updatedItem = {
+      ...cartItem,
+      purcheseCount: isAdd ? updatedCount : Math.max(updatedCount, 1),
+    };
+    setCartItem(updatedItem);
+    dispatch(updateCart(updatedItem));
+  };
 
   return (
     <div>
@@ -85,10 +116,20 @@ export const ProductDetails: React.FC = () => {
             </div>
           </div>
           <p className="text-gray-700 text-xs mt-4 mb-2">Quantity</p>
-          <div className="flex justify-between border border-red-100 px-4 py-2 w-1/3">
-            <img className="w-6 h-6" src={ic_add} alt="product-img" />
-            <p className="px-2">1</p>
-            <img className="w-6 h-6" src={ic_minus} alt="product-img" />
+          <div className="flex justify-between min-w-32 border border-red-100 px-4 py-2">
+            <img
+              className="w-6 h-6"
+              src={ic_add}
+              alt="product-img"
+              onClick={(e) => updateCartItem(e, true)}
+            />
+            <p className="px-2">{cartItem?.purcheseCount}</p>
+            <img
+              className="w-6 h-6"
+              src={ic_minus}
+              alt="product-img"
+              onClick={(e) => updateCartItem(e, false)}
+            />
           </div>
           <button className="w-full border border-gray-700 py-3 my-4">
             Add to cart

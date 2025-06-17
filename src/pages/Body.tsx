@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavBar } from "../components/NavBar";
 import { HeaderBg } from "../components/HeaderBg";
 import { ProductList } from "../components/ProductList";
@@ -7,8 +7,18 @@ import { RefineryItem } from "../components/RefineryItem";
 import { QuickLinks } from "../components/QuickLinks";
 import { Pagination } from "../components/Pagination";
 import { InfiniteProductList } from "../components/InfiniteProductList";
+import { useAppSelector } from "../store/ReduxStore";
+import { useNavigate } from "react-router";
 
 export const Body: React.FC = () => {
+  const userId = useAppSelector((store) => store.user.userId);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!userId) {
+      navigate("/");
+    }
+  }, [userId]);
   return (
     <>
       <NavBar />
