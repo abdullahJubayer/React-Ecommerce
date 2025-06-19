@@ -14,8 +14,9 @@ export const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({
   const buttonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    debugger;
     if (!window.google || !buttonRef.current) return;
-
+    // console.log(window.google);
     window.google.accounts.id.initialize({
       client_id:
         "150273695146-1s69a23d0hd0e7lvu7j50sm1j5ci2raq.apps.googleusercontent.com",
