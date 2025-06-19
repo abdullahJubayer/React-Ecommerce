@@ -1,11 +1,11 @@
 {
-  "name": "parcel-react-client-starter",
+  "name": "parcel-react-client-starter-2",
   "private": true,
   "version": "0.0.0",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build src/index.html"
+    "build": "parcel build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
