@@ -2,7 +2,7 @@ import React, { cache, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { GoogleSignInButton } from "./GoogleSignInButton";
 import { useAppDispatch } from "../store/ReduxStore";
-import { addUser } from "../store/userSlice";
+import { addUser } from "../store/UserSlice";
 
 export const LoginForm: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState("");
